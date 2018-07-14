@@ -10,6 +10,8 @@ defaultEntryPoints = ["https","http"]
     entryPoint = "https"
   [entryPoints.https]
   address = ":443"
+  [entryPoints.https.auth.forward]
+  address="https://auth.EXAMPLE.COM/"
   [entryPoints.https.tls]
 
 [retry]
@@ -21,4 +23,3 @@ entryPoint = "https"
 OnHostRule = true
 [acme.httpChallenge]
 entryPoint = "http"
-
